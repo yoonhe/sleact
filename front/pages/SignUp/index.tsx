@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom';
 import useSWR from 'swr';
 
 const SignUp = () => {
-  const { data: userData } = useSWR('/api/user', fetcher);
+  const { data: userData } = useSWR('/api/user', fetcher); // 로그인 여부 파악
   const [signUpError, setSignUpError] = useState('');
   const [signUpSuccess, setSignUpSuccess] = useState(false);
   const [mismatchError, setMismatchError] = useState(false);

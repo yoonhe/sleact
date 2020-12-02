@@ -1,3 +1,10 @@
+// TODO
+/**
+ * 데이터 관련 타입은 DB에 따라 정해짐.
+ * 보통 백엔드 개발자가 정의해줌.
+ * DB를 제일 잘 아는 사람은 백엔드 개발자이기 때문이다.
+ */
+
 export interface IUser {
   id: number;
   nickname: string;

@@ -9,7 +9,12 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 const config: webpack.Configuration = {
   name: 'sleact',
   mode: isDevelopment ? 'development' : 'production',
-  devtool: isDevelopment ? 'hidden-source-map' : 'inline-source-map',
+  devtool: isDevelopment ? 'inline-source-map' : 'hidden-source-map',
+  // TODO
+  /**
+   * 개발모드 일때만 소스를 보여준다.
+   */
+
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     alias: {

@@ -76,11 +76,17 @@ const ChannelList: FC<Props> = ({ userData, channelData }) => {
             aria-hidden="true"
           />
         </CollapseButton>
+
         <span>Channels</span>
+        {/* DM리스트와 다른부분 */}
       </h2>
       <div>
         {!channelCollapse &&
           channelData?.map((channel) => {
+            // DM리스트와 다른부분
+            // DM은 memberData, ChannelList는 channelData
+            // 비슷한 컴포넌트를 잘 만들어두면 재사용이 가능하다
+
             const count = countList[`c-${channel.id}`];
             return (
               <NavLink

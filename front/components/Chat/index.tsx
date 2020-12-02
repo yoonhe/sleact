@@ -15,14 +15,22 @@ const Chat: FC<Props> = memo(({ data }) => {
   const { workspace } = useParams<{ workspace: string; channel: string }>();
   const user: IUser = 'Sender' in data ? data.Sender : data.User;
 
+  // TODO
+  /**
+   * 문자열에서 특정한 패턴을 추출해서 바꿀때는 정규표현식을 쓰는게 가장 편하다
+   *
+   * ## regexifyString
+   *   => 문자열에서 정규표현식과 일치하는 패턴을 찾아서 다른것으로 치환을 해주는 역할을 한다.
+   */
   const result = useMemo<(string | JSX.Element)[]>(
     () =>
       regexifyString({
-        pattern: /@\[(.+?)]\((\d+?)\)|\n/g,
+        pattern: /@\[(.+?)]\((\d+?)\)|\n/g, // input으로 들어오는 문자열중 패턴에 일치하는 것을 찾아서
         decorator(match, index) {
           const arr: string[] | null = match.match(/@\[(.+?)]\((\d+?)\)/)!;
           if (arr) {
             return (
+              // return 값으로 바꿔준다.
               <Link key={match + index} to={`/workspace/${workspace}/dm/${arr[2]}`}>
                 @{arr[1]}
               </Link>

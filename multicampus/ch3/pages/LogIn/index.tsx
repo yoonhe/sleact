@@ -24,6 +24,11 @@ const LogIn = () => {
         )
         .then(() => {
           revalidate();
+          // TODO
+          /** MEMO
+           * post 요청 후에 최신데이터를 불러와주는 기능
+           * 회사 프로젝트에 적용해보기, 현재 회사 프로젝트는 post 요청 후 mutate를 해주고 있음....
+           */
         })
         .catch((error) => {
           console.error(error.response);
